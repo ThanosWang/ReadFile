@@ -20,5 +20,5 @@ jobs:
       - run:
           name: run tests
           command: |
-            . venv/bin/activate
+            . txtreader/bin/activate
             python test.py
