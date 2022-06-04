@@ -14,8 +14,6 @@ assert 'No4.txt' in Alltxtfiles
 
 assert 'No5.txt' in Alltxtfiles 
 
-assert 'Test.txt' in Alltxtfiles
-
 assert open('No1.txt','r').read() == 'Hello!'
 
 assert open('No2.txt','r').read() == 'I am Zijun Wang.'
