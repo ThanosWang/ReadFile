@@ -14,6 +14,8 @@ assert 'No4.txt' in Alltxtfiles
 
 assert 'No5.txt' in Alltxtfiles 
 
+assert 'Test.txt' in Alltxtfiles
+
 assert open('No1.txt','r').read() == 'Hello!'
 
 assert open('No2.txt','r').read() == 'I am Zijun Wang.'
@@ -24,9 +26,11 @@ assert open('No4.txt','r').read() == 'I will try to use continuous integration i
 
 assert open('No5.txt','r').read() == 'I hope I can succeed!'
 
-assert len(Alltxtfiles) > 5
+assert open('Test.txt','r').read() == 'This is first test.\n'
 
-Newtxtfiles = [i for i in Alltxtfiles if i not in ('No1.txt','No2.txt','No3.txt','No4.txt','No5.txt')]
+assert len(Alltxtfiles) > 6
+
+Newtxtfiles = [i for i in Alltxtfiles if i not in ('No1.txt','No2.txt','No3.txt','No4.txt','No5.txt','Test.txt')]
 
 for i in Newtxtfiles:
     assert i.endswith('.txt')
