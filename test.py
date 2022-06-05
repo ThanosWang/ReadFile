@@ -24,9 +24,9 @@ assert open('No4.txt','r').read() == 'I will try to use continuous integration i
 
 assert open('No5.txt','r').read() == 'I hope I can succeed!'
 
-assert len(Alltxtfiles) > 5
-
 Newtxtfiles = [i for i in Alltxtfiles if i not in ('No1.txt','No2.txt','No3.txt','No4.txt','No5.txt')]
+
+assert Newtxtfiles != []
 
 for i in Newtxtfiles:
     assert i.endswith('.txt')

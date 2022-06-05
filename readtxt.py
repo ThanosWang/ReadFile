@@ -1,4 +1,5 @@
 import os
+
 os.chdir('.txtfiles')
 
 for i in os.listdir():
