@@ -1,0 +1,47 @@
+name: Get All Changed Files
+on:
+  pull_request:
+  push:
+    branches:
+      -master
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dependencies
+        run: |
+          yarn
+      - name: Clean, build, format, lint, package, and test
+        run: |
+          yarn all
+  
+   get all changed files:
+     name: Get All Changed Files 
+     runs-on: ubuntu-latest
+     steps:
+       - id: files
+         uses: jitterbit/get-changed-files@v1
+         run: |
+           for changed_file in ${{ steps.files.outputs.all }}; do
+             echo "Do something with this ${changed_file}."
+           done
+       - id: files
+         uses: jitterbit/get-changed-files@v1
+         with:
+           format:'cvs'
+         run: |
+           mapfile -d ',' -t added_modified_files < <(printf '%s,' '${{ steps.files.outputs.added_modified }}')
+           for added_modified_file in "${added_modified_files[@]}"; do
+             echo "Do something with this ${added_modified_file}."
+           done
+       - id: files
+         uses: jitterbit/get-changed-files@v1
+         with:
+           format:'json'
+         run: |
+           readarray -t removed_files <<<"$(jq -r '.[]' <<<'${{ steps.files.outputs.removed }}')"
+           for removed_file in ${removed_files[@]}; do
+             echo "Do something with this ${removed_file}."
+           done
