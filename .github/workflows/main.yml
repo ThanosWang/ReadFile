@@ -23,4 +23,4 @@ jobs:
         uses: jitterbit/get-changed-files@v1
       - name: check added files
         run: |
-          echo &{{steps.files.outputs.added}}
+          echo ${{steps.files.outputs.added}}
