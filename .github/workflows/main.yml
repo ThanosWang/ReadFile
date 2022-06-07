@@ -22,7 +22,7 @@ jobs:
     name: Get All Changed Files 
     runs-on: ubuntu-latest
     steps:
-      - id: files
+      - name: All changed files
         uses: jitterbit/get-changed-files@v1
       - run: |
           for changed_file in ${{ steps.files.outputs.all }}; do
