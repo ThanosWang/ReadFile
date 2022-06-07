@@ -7,8 +7,8 @@ on:
       - master
 
 jobs:
-  build:
-    name: Build
+  build environment:
+    name: Build Environment
     runs-on: ubuntu-latest
     steps:
       - name: Install dependencies
@@ -22,13 +22,13 @@ jobs:
      name: Get All Changed Files 
      runs-on: ubuntu-latest
      steps:
-       - id: files
+       - name: All changed files
          uses: jitterbit/get-changed-files@v1
          run: |
            for changed_file in ${{ steps.files.outputs.all }}; do
              echo "Do something with this ${changed_file}."
            done
-       - id: files
+       - name: Modified files
          uses: jitterbit/get-changed-files@v1
          with:
            format:'cvs'
@@ -37,7 +37,7 @@ jobs:
            for added_modified_file in "${added_modified_files[@]}"; do
              echo "Do something with this ${added_modified_file}."
            done
-       - id: files
+       - name: removed files
          uses: jitterbit/get-changed-files@v1
          with:
            format:'json'
