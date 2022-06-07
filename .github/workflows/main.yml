@@ -7,7 +7,7 @@ jobs:
     name: Get All Changed Files 
     runs-on: ubuntu-latest
     steps:
-      - id: files
+      - ThanosWang: files
         uses: jitterbit/get-changed-files@v1
         with:
           format: 'csv'
