@@ -46,3 +46,4 @@ jobs:
           for removed_file in ${removed_files[@]}; do
             echo "Do something with this ${removed_file}."
           done
+
