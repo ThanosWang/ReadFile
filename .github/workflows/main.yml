@@ -22,26 +22,23 @@ jobs:
     name: Get All Changed Files 
     runs-on: ubuntu-latest
     steps:
-      - id: files
-        uses: jitterbit/get-changed-files@v1
-        run: |
+      - uses: jitterbit/get-changed-files@v1
+      - run: |
           for changed_file in ${{ steps.files.outputs.all }}; do
             echo "Do something with this ${changed_file}."
           done
-      - id: files
-        uses: jitterbit/get-changed-files@v1
+      - uses: jitterbit/get-changed-files@v1
         with:
           format:'cvs'
-        run: |
+      - run: |
           mapfile -d ',' -t added_modified_files < <(printf '%s,' '${{ steps.files.outputs.added_modified }}')
           for added_modified_file in "${added_modified_files[@]}"; do
             echo "Do something with this ${added_modified_file}."
           done
-      - id: files
-        uses: jitterbit/get-changed-files@v1
+      - uses: jitterbit/get-changed-files@v1
         with:
           format:'json'
-        run: |
+      - run: |
           readarray -t removed_files <<<"$(jq -r '.[]' <<<'${{ steps.files.outputs.removed }}')"
           for removed_file in ${removed_files[@]}; do
             echo "Do something with this ${removed_file}."
