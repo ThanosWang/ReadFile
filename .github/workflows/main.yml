@@ -3,8 +3,8 @@ name: Get All Changed Files
 on: [push, pull_request]
 
 jobs:
-  get_all_changed_files:
-    name: Get All Changed Files 
+  get_modified_files:
+    name: Get modified files 
     runs-on: ubuntu-latest
     steps:
       - id: files
@@ -14,3 +14,13 @@ jobs:
       - name: check differences
         run: |
           echo ${{steps.files.outputs.modified}}
+  
+  get_all_changed_files:
+    name: Get all changed files
+    runs-on: ubuntu-latest
+    steps:
+      - id: files
+        uses: jitterbit/get-changed-files@v1
+      - name: check added files
+        run: |
+          echo &{{steps.files.outputs.added}}
