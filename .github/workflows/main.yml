@@ -14,7 +14,7 @@ jobs:
       - name: check modified files
         run: |
           if [ ${{steps.files.outputs.modified}} == [] ]; then
-            exit
+            echo 'no existing files are modified.'
           else
             false
           fi
@@ -30,7 +30,7 @@ jobs:
       - name: check renamed files
         run: |
           if [ ${{steps.files.outputs.renamed}} == [] ]; then
-            exit
+            echo 'No existing files are renamed.'
           else
             false
           fi
@@ -46,7 +46,7 @@ jobs:
       - name: check removed files
         run: |
           if [ ${{steps.files.outputs.removed}} == [] ]; then
-            exit
+            echo 'No existing files are removed.'
           else
             false
           fi
