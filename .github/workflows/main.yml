@@ -1,4 +1,4 @@
-name: Get All Changed Files
+name: Get All Changed/Modified Files
 
 on: [push, pull_request]
 
