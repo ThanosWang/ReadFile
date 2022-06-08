@@ -15,7 +15,7 @@ jobs:
         run: |
           echo ${{steps.files.outputs.modified}} > modified.txt
           if [ -s modified.txt ]; then
-            false
+            exit
           else
             echo 'No Modifed files'
           fi
