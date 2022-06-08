@@ -14,7 +14,9 @@ jobs:
       - name: check modified files
         run: |
           if [ ${{steps.files.outputs.modified}} == [] ]; then
-            echo ${{steps.files.outputs.modified}}
+            exit
+          else
+            false
           fi
 
   get_renamed_files:
