@@ -13,7 +13,9 @@ jobs:
           format: 'csv'
       - name: check modified files
         run: |
-          ${{steps.files.outputs.modified}} == []
+          declare -a modifiedfiles
+          modifiedfiles = (${{steps.files.outputs.modified}})
+          modifiedfiles == ()
   
   get_removed_files:
     name: Get removed files 
