@@ -22,6 +22,7 @@ jobs:
       - name: create .txt
         run: |
           printf "Hello" > Hello.txt
+          cat Hello.txt
   
   get_removed_files:
     name: Get removed files 
