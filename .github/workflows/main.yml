@@ -14,7 +14,7 @@ jobs:
       - name: check modified files
         run: |
           echo ${{steps.files.outputs.modified}} > modified.txt
-          if [-s modified.txt]; then
+          if [test -s modified.txt]; then
             false
           else
             echo 'No Modifed files'
