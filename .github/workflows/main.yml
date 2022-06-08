@@ -14,7 +14,12 @@ jobs:
       - name: check modified files
         run: |
           echo ${{steps.files.outputs.modified}} > modified.txt
-          test -s modified.txt
+          if [ -s modified.txt ]
+          then
+              stop
+          else
+              echo ${{steps.files.outputs.modified}}
+          fi
           
   
   get_removed_files:
