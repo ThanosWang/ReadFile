@@ -13,16 +13,7 @@ jobs:
           format: 'csv'
       - name: check modified files
         run: |
-          echo ${{steps.files.outputs.modified}}
-
-  create_new_textfiles:
-    name: Create new textfiles
-    runs-on: ubuntu-latest
-    steps:
-      - name: create .txt
-        run: |
-          printf "Hello" > Hello.txt
-          cat Hello.txt
+          ${{steps.files.outputs.modified}} == []
   
   get_removed_files:
     name: Get removed files 
