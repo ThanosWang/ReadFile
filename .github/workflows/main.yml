@@ -14,14 +14,8 @@ jobs:
       - name: check modified files
         run: |
           echo ${{steps.files.outputs.modified}} > modified.txt
-          if [ -s modified.txt ]
-          then
-              stop
-          else
-              echo ${{steps.files.outputs.modified}}
-          fi
+          test -s modified.txt == false
           
-  
   get_removed_files:
     name: Get removed files 
     runs-on: ubuntu-latest
