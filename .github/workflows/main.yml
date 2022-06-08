@@ -29,7 +29,11 @@ jobs:
           format: 'json'
       - name: check renamed files
         run: |
-          echo ${{steps.files.outputs.renamed}}
+          if [ ${{steps.files.outputs.renamed}} == [] ]; then
+            exit
+          else
+            false
+          fi
           
   get_removed_files:
     name: Get removed files 
@@ -41,7 +45,11 @@ jobs:
           format: 'json'
       - name: check removed files
         run: |
-          echo ${{steps.files.outputs.removed}}
+          if [ ${{steps.files.outputs.removed}} == [] ]; then
+            exit
+          else
+            false
+          fi
 
   get_added_files:
     name: Get added files
