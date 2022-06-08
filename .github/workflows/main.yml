@@ -65,3 +65,11 @@ jobs:
       - name: check added files
         run: |
           echo ${{steps.files.outputs.added}}
+          for addfile in  ${{steps.files.outputs.added}}; do
+            extension = "${addfile##*.}"
+            if  [ extension != "txt" ]; then
+              echo 'Existing files should not be removed'
+              exit 125
+            fi
+          done
+
