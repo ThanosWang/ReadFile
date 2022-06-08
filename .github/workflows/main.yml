@@ -15,17 +15,17 @@ jobs:
         run: |
           echo ${{steps.files.outputs.modified}}
   
-  get_renamed_files:
-    name: Get renamed files 
+  get_removed_files:
+    name: Get removed files 
     runs-on: ubuntu-latest
     steps:
       - id: files
         uses: jitterbit/get-changed-files@v1
         with:
-          format: 'csv'
+          format: 'json'
       - name: check renamed files
         run: |
-          echo ${{steps.files.outputs.renamed}}
+          echo ${{steps.files.outputs.removed}}
 
   get_all_changed_files:
     name: Get all changed files
