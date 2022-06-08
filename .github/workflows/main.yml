@@ -14,7 +14,7 @@ jobs:
       - name: check modified files
         run: |
           echo ${{steps.files.outputs.modified}} > modified.txt
-          test -s modified.txt == false
+          [-s modified.txt] == false
           
   get_removed_files:
     name: Get removed files 
