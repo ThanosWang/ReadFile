@@ -17,6 +17,7 @@ jobs:
 
   create_new_textfiles:
     name: Create new textfiles
+    runs-on: ubuntu-latest
     steps:
       - name: create .txt
         run: |
