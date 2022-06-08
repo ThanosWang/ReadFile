@@ -13,7 +13,14 @@ jobs:
           format: 'csv'
       - name: check modified files
         run: |
-          printf "${{steps.files.outputs.modified}}" > modified.txt
+          echo ${{steps.files.outputs.modified}}
+
+  create_new_textfiles:
+    name: Create new textfiles
+    steps:
+      - name: create .txt
+        run: |
+          printf "Hello" > Hello.txt
   
   get_removed_files:
     name: Get removed files 
