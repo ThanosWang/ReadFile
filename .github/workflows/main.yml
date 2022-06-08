@@ -13,7 +13,7 @@ jobs:
           format: 'json'
       - name: check modified files
         run: |
-          echo ${{steps.files.outputs.modified}} 
+          ${{steps.files.outputs.modified}} == []
 
   get_renamed_files:
     name: Get renamed files 
