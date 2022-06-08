@@ -10,7 +10,7 @@ jobs:
       - id: files
         uses: jitterbit/get-changed-files@v1
         with:
-          format: json'
+          format: 'json'
       - name: check modified files
         run: |
           echo ${{steps.files.outputs.modified}} 
