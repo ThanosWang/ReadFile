@@ -16,7 +16,7 @@ jobs:
           echo ${{steps.files.outputs.modified}} > modified.txt
           if [-s modified.txt]; then
             false
-          else; then
+          else
             echo 'No Modifed files'
           
   get_removed_files:
