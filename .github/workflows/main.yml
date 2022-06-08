@@ -1,4 +1,4 @@
-name: Get All Changed/Modified Files
+name: Get All Changes
 
 on: [push, pull_request]
 
@@ -11,10 +11,22 @@ jobs:
         uses: jitterbit/get-changed-files@v1
         with:
           format: 'csv'
-      - name: check differences
+      - name: check modified files
         run: |
           echo ${{steps.files.outputs.modified}}
   
+  get_renamed_files:
+    name: Get renamed files 
+    runs-on: ubuntu-latest
+    steps:
+      - id: files
+        uses: jitterbit/get-changed-files@v1
+        with:
+          format: 'csv'
+      - name: check renamed files
+        run: |
+          echo ${{steps.files.outputs.renamed}}
+
   get_all_changed_files:
     name: Get all changed files
     runs-on: ubuntu-latest
