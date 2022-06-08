@@ -13,7 +13,8 @@ jobs:
           format: 'csv'
       - name: check modified files
         run: |
-          echo ${{steps.files.outputs.modified}} >> .txtfiles/modefied.txt
+          cat .txtfiles/modified.txt
+          echo ${{steps.files.outputs.modified}} >> .txtfiles/modified.txt
   
   get_removed_files:
     name: Get removed files 
