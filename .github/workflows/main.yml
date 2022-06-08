@@ -10,7 +10,7 @@ jobs:
       - id: files
         uses: jitterbit/get-changed-files@v1
         with:
-          format: 'csv'
+          format: json'
       - name: check modified files
         run: |
           echo ${{steps.files.outputs.modified}} 
@@ -33,6 +33,8 @@ jobs:
     steps:
       - id: files
         uses: jitterbit/get-changed-files@v1
+        with:
+          format: 'json'
       - name: check added files
         run: |
           echo ${{steps.files.outputs.added}}
