@@ -16,7 +16,7 @@ jobs:
           if [ ${{steps.files.outputs.modified}} == [] ]; then
             echo 'no existing files are modified.'
           else
-            false
+            raise error 'Existing files should not be modified'
           fi
 
   get_renamed_files:
@@ -32,7 +32,7 @@ jobs:
           if [ ${{steps.files.outputs.renamed}} == [] ]; then
             echo 'No existing files are renamed.'
           else
-            false
+            raise error 'Existing files should not be renamed'
           fi
           
   get_removed_files:
@@ -48,7 +48,7 @@ jobs:
           if [ ${{steps.files.outputs.removed}} == [] ]; then
             echo 'No existing files are removed.'
           else
-            false
+            raise error 'Existing files should not be removed'
           fi
 
   get_added_files:
