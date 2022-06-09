@@ -14,4 +14,4 @@ else:
         assert i.endswith('.txt')
         files = open(i,'r')
         Files = files.read()
-        print(Files)
+        assert 1 == Files.count('.\n') + Files.count('!\n') + Files.count('?\n')
