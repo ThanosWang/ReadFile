@@ -10,7 +10,6 @@ else:
     for i in addedfiles:
         assert i.endswith('.txt')
         path = os.path.dirname(os.path.realpath(i))
-        assert os.path.exists('path/model_description.txt')
-        f = open(i,'r')
-        F = f.read()
-        assert 1 == F.count('.\n') + F.count('!\n') + F.count('?\n')
+        os.chdir(path)
+        for i in os.listdir():
+            print(i)
