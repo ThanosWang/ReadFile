@@ -69,5 +69,8 @@ jobs:
           for added_file in "${added_files[@]}"; do
             echo "${added_file}."
             echo "${added_file##*.}"
+            if  [ [ "${addfile##*.}" != "txt\""] || [ "${addfile##*.}" != "txt\"\]" ] ]; then
+              echo 'Existing files should not be removed'
+              exit 125
           done
 
