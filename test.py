@@ -12,4 +12,6 @@ else:
         path = os.path.dirname(os.path.realpath(i))
         os.chdir(path)
         for i in os.listdir():
-            print(i)
+            f = open(i,'r')
+            F = f.read()
+            print(F)
