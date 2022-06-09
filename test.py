@@ -14,4 +14,4 @@ else:
         assert i.endswith('.txt')
         files = open(i,'r')
         Files = files.read()
-        print(F)
+        print(Files)
