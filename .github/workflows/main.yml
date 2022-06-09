@@ -61,14 +61,11 @@ jobs:
       - id: files
         uses: jitterbit/get-changed-files@v1
         with:
-          format: 'csv'
+          format: 'json'
       - name: check added files
         run: |
           echo ${{steps.files.outputs.added}}
-          for added_file in ${{ steps.files.outputs.added }}; do
-            echo ${added_file##*.}
-            echo "Do something with this ${added_file}."
-          done
+
           
           
 
