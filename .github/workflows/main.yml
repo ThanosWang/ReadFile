@@ -54,18 +54,28 @@ jobs:
             exit 125
           fi
 
-  get_added_files:
-    name: Get added files
+  check_added_files:
+    name: Check added files
     runs-on: ubuntu-latest
     steps:
       - id: files
         uses: jitterbit/get-changed-files@v1
         with:
           format: 'json'
-      - name: check added files
+      - name: Find added files
         run: |
           echo ${{steps.files.outputs.added}}
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.8'
+      - name: Install Independencies
+        run: |
+          python3 -m venv txtreader
+          . txtreader/bin/activate
+          pip install -r requirements.txt
+      - name: Check added files
+          python test.py ${{steps.files.outputs.added}}
 
-          
-          
 
