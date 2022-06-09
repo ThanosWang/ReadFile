@@ -8,4 +8,4 @@ else:
         assert i.endswith('.txt')
         f = open(i,'r')
         F = f.read()
-        assert 1 == F.count('./n') + F.count('!/n') + F.count('?/n')
+        assert 1 == F.count('.\n') + F.count('!\n') + F.count('?\n')
