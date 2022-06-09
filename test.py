@@ -11,7 +11,7 @@ else:
     os.chdir(path)
     assert os.path.exists('model_description.txt')
     for i in os.listdir():
-        assert i.endswith(.txt)
+        assert i.endswith('.txt')
         files = open(i,'r')
         Files = files.read()
         print(F)
