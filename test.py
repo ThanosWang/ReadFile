@@ -1,8 +1,9 @@
 import sys
+assert len(sys.argv) != 1
 filenames = sys.argv[1]
 addedfiles = filenames.split(',')
 for i in addedfiles:
     assert i.endswith('.txt')
     f = open(i,'r')
     F = f.read()
-    print(F)
+    assert 1 == F.count('./n') + F.count('!/n') + F.count('?/n')
