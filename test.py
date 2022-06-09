@@ -1,4 +1,3 @@
 import sys
-list = sys.argv[1]
-for i in list:
+for i in sys.argv[1]:
     print(i)
