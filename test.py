@@ -1,3 +1,4 @@
 import sys
-f = open(sys.argv[1],'r')
-print (f.read())
+list = sys.argv[1]
+for i in list:
+    print(i)

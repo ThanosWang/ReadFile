@@ -60,11 +60,9 @@ jobs:
     steps:
       - id: files
         uses: jitterbit/get-changed-files@v1
-        with: 
-          format: 'json'
-      - name: Find added files
+      - name: Find all added files
         run: |
-          echo ${{steps.files.outputs.added}} > addedfiles.txt
+          echo ${{steps.files.outputs.all}}
       - uses: actions/checkout@v3
       - name: Set up Python 3.8
         uses: actions/setup-python@v3
@@ -77,6 +75,6 @@ jobs:
           pip install -r requirements.txt
       - name: Check added files
         run: |
-          python test.py addfiles.txt
+          python test.py ${{steps.files.outputs.all}}
 
 
