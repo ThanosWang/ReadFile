@@ -62,7 +62,11 @@ jobs:
         uses: jitterbit/get-changed-files@v1
       - name: check added files
         run: |
-          echo ${{steps.files.outputs.added}} > addfiles.txt
-          cat addfiles.txt
+          echo ${{steps.files.outputs.added}}
+          for added_file in ${{ steps.files.outputs.added }}; do
+            echo ${added_file##*.}
+            echo "Do something with this ${added_file}."
+          done
+          
           
 
