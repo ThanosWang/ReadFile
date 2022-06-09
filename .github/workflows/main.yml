@@ -64,14 +64,7 @@ jobs:
           format: 'json'
       - name: check added files
         run: |
-          echo ${{steps.files.outputs.added}}
-          mapfile -d ',' -t added_files < <(printf '%s,' '${{ steps.files.outputs.added}}')
-          for added_file in "${added_files[@]}"; do
-            echo "${added_file}."
-            echo "${added_file##*.}"
-            if  [ [ "${addfile##*.}" != "txt\""] || [ "${addfile##*.}" != "txt\"\]" ] ]; then
-              echo 'Existing files should not be removed'
-              exit 125
-            fi  
-          done
+          echo ${{steps.files.outputs.added}} > addfiles.txt
+          cat addfiles.txt
+          
 
