@@ -61,7 +61,7 @@ jobs:
       - id: files
         uses: jitterbit/get-changed-files@v1
         with:
-          format: 'csv'
+          format: 'json'
       - name: Find added files
         run: |
           echo ${{steps.files.outputs.added}}
