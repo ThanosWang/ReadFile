@@ -61,15 +61,17 @@ jobs:
       - id: files
         uses: jitterbit/get-changed-files@v1
         with:
-          format: 'csv'
+          format: 'json'
       - name: check added files
         run: |
           echo ${{steps.files.outputs.added}}
-          for addfile in ${{steps.files.outputs.added}} ; do
+          my_array = ($(echo ${{steps.files.outputs.added}} | tr "," "\n"))
+          echo 'my_array'
+          for addfile in my_array; do
             echo ${addfile##*.}
             # if  [ "${addfile##*.}" != "txt" ]; then
-            #   echo 'Existing files should not be removed'
-            #   exit 125
-            # fi
+            #  echo 'Existing files should not be removed'
+            #  exit 125
+            fi
           done
 
