@@ -72,5 +72,6 @@ jobs:
             if  [ [ "${addfile##*.}" != "txt\""] || [ "${addfile##*.}" != "txt\"\]" ] ]; then
               echo 'Existing files should not be removed'
               exit 125
+            fi  
           done
 
