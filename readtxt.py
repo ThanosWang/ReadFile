@@ -1,9 +1,13 @@
 import os
 
-os.chdir('.txtfiles')
+os.chdir('Models')
 
-for i in os.listdir():
-    f = open(i, 'r')
-    F = f.read()
-    print(F)
-    f.close()
+for folder in os.listdir():
+    path = os.getcwd()
+    os.chdir(folder)
+    for txt in os.listdir():
+        files = open(txt,'r')
+        Files = files.read()
+        print(Files)
+        files.close()
+    os.chdir(path)
