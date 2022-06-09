@@ -1,10 +1,10 @@
-name: Get All Changes
+name: Check uploaded files
 
 on: [push, pull_request]
 
 jobs:
-  get_modified_files:
-    name: Get modified files 
+  check_modified_files:
+    name: Check modified files 
     runs-on: ubuntu-latest
     steps:
       - id: files
@@ -20,8 +20,8 @@ jobs:
             exit 125
           fi
 
-  get_renamed_files:
-    name: Get renamed files 
+  check_renamed_files:
+    name: Check renamed files 
     runs-on: ubuntu-latest
     steps:
       - id: files
@@ -37,8 +37,8 @@ jobs:
             exit 125
           fi
           
-  get_removed_files:
-    name: Get removed files 
+  check_removed_files:
+    name: Check removed files 
     runs-on: ubuntu-latest
     steps:
       - id: files
