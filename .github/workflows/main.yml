@@ -65,13 +65,9 @@ jobs:
       - name: check added files
         run: |
           echo ${{steps.files.outputs.added}}
-          my_array = ($(echo ${{steps.files.outputs.added}} | tr "," "\n"))
-          echo 'my_array'
-          for addfile in my_array; do
-            echo ${addfile##*.}
-            # if  [ "${addfile##*.}" != "txt" ]; then
-            #  echo 'Existing files should not be removed'
-            #  exit 125
-            fi
+          mapfile -d ',' -t added_files < <(printf '%s,' '${{ steps.files.outputs.added}}')
+          for added_modified_file in "${added_files[@]}"; do
+            echo "${added_file}."
+            echo "${added_file##*.}"
           done
 
