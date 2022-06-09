@@ -9,8 +9,8 @@ else:
     addedfiles = filenames.split(',')
     for i in addedfiles:
         assert i.endswith('.txt')
-        path = os.getcwd()
-        print (path)
+        path = os.path.dirname(os.path.realpath(i))
+        print(path)
         f = open(i,'r')
         F = f.read()
         assert 1 == F.count('.\n') + F.count('!\n') + F.count('?\n')
