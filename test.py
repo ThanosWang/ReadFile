@@ -9,6 +9,9 @@ else:
     addedfiles = filenames.split(',')
     path = os.path.dirname(os.path.realpath(addedfiles[0]))
     os.chdir(path)
-    assert os.path.exists('Test6.txt')
+    assert os.path.exists('model_description.txt')
     for i in os.listdir():
-        print(i)
+        assert i.endswith(.txt)
+        files = open(i,'r')
+        Files = files.read()
+        print(F)
