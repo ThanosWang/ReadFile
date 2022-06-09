@@ -66,7 +66,7 @@ jobs:
         run: |
           echo ${{steps.files.outputs.added}}
           mapfile -d ',' -t added_files < <(printf '%s,' '${{ steps.files.outputs.added}}')
-          for added_modified_file in "${added_files[@]}"; do
+          for added_file in "${added_files[@]}"; do
             echo "${added_file}."
             echo "${added_file##*.}"
           done
