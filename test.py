@@ -1,4 +1,5 @@
 import sys
 filenames = sys.argv[1]
 addedfiles = filenames.split(',')
-print(addedfiles)
+for i in addedfiles:
+    print(i)
