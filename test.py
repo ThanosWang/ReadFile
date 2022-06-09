@@ -1,4 +1,7 @@
 import sys
+
+import os
+
 if len(sys.argv) == 1:
     sys.exit()
 else:
@@ -6,6 +9,8 @@ else:
     addedfiles = filenames.split(',')
     for i in addedfiles:
         assert i.endswith('.txt')
+        path = os.getcwd()
+        print (path)
         f = open(i,'r')
         F = f.read()
         assert 1 == F.count('.\n') + F.count('!\n') + F.count('?\n')
