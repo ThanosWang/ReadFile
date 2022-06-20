@@ -80,6 +80,6 @@ jobs:
           pip install -r requirements.txt
       - name: Check added files
         run: |
-          python test.py ${{steps.files.outputs.added}}
+          python UFOModel_upload_test.py ${{steps.files.outputs.added}}
 
 
