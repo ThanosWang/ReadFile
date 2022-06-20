@@ -1,9 +1,7 @@
-Any existing files should not be renamed, removed, or modified.
+This is the first version automatically checking UFO models uploaded.
 
-You can only create folders in Models and then added your files.
+Developers should use model independent files provided by the repository and change gauge, __author__, __date__, __version__ in __init__.py; __author__, __date__ in function_library.py and write_param_card.py with their own information.
 
-A model_description.txt is needed in your file_folder.
+Developers can put UFOModel_self_test.py in the same folder of their model files to test the completeness of necessary model dependent files.
 
-For new added files, only .txt files will be accepted.
-
-New added files should contain only one sentence in line 1 and a blank line 2.
+Developers should upload one model once.
