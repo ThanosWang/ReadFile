@@ -1,6 +1,6 @@
 name: Check uploaded files
 
-on: [push, pull_request]
+on: pull_request
 
 jobs:
   No_modified_files:
