@@ -11,6 +11,7 @@ jobs:
         uses: jitterbit/get-changed-files@v1
         with:
           format: 'json'
+        continue-on-error: true
       - name: check modified files
         run: |
           if [ ${{steps.files.outputs.modified}} == [] ]; then
@@ -29,6 +30,7 @@ jobs:
         uses: jitterbit/get-changed-files@v1
         with:
           format: 'json'
+        continue-on-error: true
       - name: check renamed files
         run: |
           if [ ${{steps.files.outputs.renamed}} == [] ]; then
@@ -47,6 +49,7 @@ jobs:
         uses: jitterbit/get-changed-files@v1
         with:
           format: 'json'
+        continue-on-error: true
       - name: check removed files
         run: |
           if [ ${{steps.files.outputs.removed}} == [] ]; then
@@ -65,6 +68,7 @@ jobs:
         uses: jitterbit/get-changed-files@v1
         with:
           format: 'csv'
+        continue-on-error: true
       - name: Find added files
         run: |
           echo ${{steps.files.outputs.added}}
