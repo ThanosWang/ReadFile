@@ -49,13 +49,21 @@ else:
 
     #Check if parameters.py contains parameters
     params = []
+    number_of_params = 0
     for i in [item for item in dir(parameters) if not item.startswith("__")]:    
         item = getattr(parameters,i)
         if type(item) == (object_library.Parameter):
             params.append(item.name)
+            number_of_params += 1
 
     if len(params) == 0:
         raise Exception('There should be parameters defined in you parameters.py.')
+
+    print('You model contains %i parameters.' %(number_of_params))
+
+
+
+
 
     # Check the completeness of particles.py
     try:
@@ -70,14 +78,23 @@ else:
         raise Exception('One/Some of your particles missing required positional argument, please check again.')
 
     #Check if particles.py contains particles
-    names = []
+    particlenames = []
+    number_of_particles = 0
     for i in [item for item in dir(particles) if not item.startswith("__")]:
         item = getattr(particles,i)
         if type(item) == (object_library.Particle):
-            names.append(item.name)
+            particlenames.append(item.name)
+            number_of_particles += 1
 
-    if len(names) == 0:
+    if len(particlenames) == 0:
         raise Exception('There should be particles defined in you particles.py.')
+
+    print('You model contains %i particles below：' %(number_of_particles))
+    print(particlenames)
+
+
+
+
 
     # Check the completeness of lorentz.py
     try:
@@ -93,13 +110,21 @@ else:
 
     #Check if lorentz.py contains lorentz tensors
     lorentz_tensor = []
+    number_of_lorentz_tensors = 0
     for i in [item for item in dir(lorentz) if not item.startswith("__")]:    
         item = getattr(lorentz,i)
         if type(item) == (object_library.Lorentz):
             lorentz_tensor.append(item.name)
+            number_of_lorentz_tensors += 1
 
     if len(lorentz_tensor) == 0:
         raise Exception('There should be lorentz tensors defined in you lorentz.py.')
+
+    print('You model contains %i lorentz tensors.' %(number_of_lorentz_tensors))
+
+
+
+
 
     # Check the completeness of coupling_orders.py
     try:
@@ -115,13 +140,18 @@ else:
 
     #Check if coupling_orders.py contains orders
     coupling_order = []
+    number_of_coupling_orders = 0
     for i in [item for item in dir(coupling_orders) if not item.startswith("__")]:
         item = getattr(coupling_orders,i)
         if type(item) == (object_library.CouplingOrder):
             coupling_order.append(item.name)
+            number_of_coupling_orders += 1
 
     if len(coupling_order) == 0:
         raise Exception('There should be coupling orders defined in you couplings.py.')
+
+    print('You model contains %i coupling orders.' %(number_of_coupling_orders))
+
 
 
 
@@ -140,13 +170,20 @@ else:
 
     #Check if couplings.py contains couplings
     coupling_tensor = []
+    number_of_coupling_tensors = 0
     for i in [item for item in dir(couplings) if not item.startswith("__")]:
         item = getattr(couplings,i)
         if type(item) == (object_library.Coupling):
             coupling_tensor.append(item.name)
+            number_of_coupling_tensors += 1
 
     if len(coupling_tensor) == 0:
         raise Exception('There should be coupling tensors defined in you couplings.py.')
+
+    print('You model contains %i coupling tensors.' %(number_of_coupling_tensors))
+
+
+
 
 
     # Check the completeness of vertices.py
@@ -163,10 +200,14 @@ else:
 
     #Check if vertices.py contains vertices
     vertex = []
+    number_of_vertices = 0
     for i in [item for item in dir(vertices) if not item.startswith("__")]:
         item = getattr(vertices,i)
         if type(item) == (object_library.Vertex):
             vertex.append(item.name)
+            number_of_vertices += 1
 
     if len(vertex) == 0:
-        raise Exception('There should be vertices defined in you vertices.py.')
+        raise Exception('There should be vertices defined in you vertices.py
+    
+    print('You model contains %i vertices.' %(number_of_vertices))
