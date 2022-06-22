@@ -54,7 +54,7 @@ except ImportError:
 else:
     all_CTparameters = CT_parameters.all_CTparameters
 
-gauge = [0,1]
+gauge = []
 
 __author__ = 'Model developers'
 __date__ = 'Date'
