@@ -79,18 +79,25 @@ else:
 
     #Check if particles.py contains particles
     particlenames = []
+    new_elementary_particles = []
     number_of_particles = 0
+    spin = [1, 2, 3, 5]
+    elementary_particles = [1, -1, 2, -2, 3, -3, 4, -4, 5, -5, 6, -6, 11, 12, 13, 14, 15, 16, -11, -12, -13, -14, -15, -16, 9, 21, 22, 23, 24, -24, 25, 35, 36, 37, -37]
     for i in [item for item in dir(particles) if not item.startswith("__")]:
         item = getattr(particles,i)
         if type(item) == (object_library.Particle):
             particlenames.append(item.name)
             number_of_particles += 1
+            if item.spin in spin and item.pdg_code not in elementary_particles:
+                new_elementary_particles.append(item.name)
 
     if len(particlenames) == 0:
         raise Exception('There should be particles defined in you particles.py.')
 
     print('You model contains %i particles below：' %(number_of_particles))
     print(particlenames)
+    print('You model contains new elementary particles below：')
+    print(new_elementary_particles)
 
 
 
