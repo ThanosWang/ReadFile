@@ -215,6 +215,6 @@ else:
             number_of_vertices += 1
 
     if len(vertex) == 0:
-        raise Exception('There should be vertices defined in you vertices.py
+        raise Exception('There should be vertices defined in you vertices.py)
     
     print('You model contains %i vertices.' %(number_of_vertices))
